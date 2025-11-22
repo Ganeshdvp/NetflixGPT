@@ -18,3 +18,18 @@
 
 # task-2
 
+- open firebase website and create project there
+- install firebase
+- configure firebase
+- install firebase cli
+- login in firebase -> firebase login
+- initialize ur project in firebase -> firebase init
+- bundle all files together
+- deploy ur project in firebase -> firebase deploy
+- it gives firebase url there u can see ur project!
+- enable authentication in firebase console
+
+-------firebase configure completed--------
+
+# task-3
+
