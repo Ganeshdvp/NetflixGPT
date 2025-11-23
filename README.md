@@ -56,4 +56,9 @@
 # task-6
 
 - add header page in browser component
+- restrict routing   ---- pending
+
+# task-7
+
+-  coverting all the url's into constants file
 

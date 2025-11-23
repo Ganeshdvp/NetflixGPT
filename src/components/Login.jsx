@@ -10,6 +10,7 @@ import {
 import { auth } from "../utils/firebase";
 import { useDispatch } from "react-redux";
 import { addUser } from "../utils/userSlice";
+import { PHOTO_URL_DEFAULT, LOGO_URL, BG_IMAGE_URL } from "../utils/constants";
 
 export const Login = () => {
   const [isSignIn, setIsSignIn] = useState(true);
@@ -67,11 +68,11 @@ export const Login = () => {
 
           updateProfile(user, {
             displayName: fullName,
-            photoURL: "https://png.pngtree.com/png-clipart/20200224/original/pngtree-cartoon-color-simple-male-avatar-png-image_5230557.jpg",
+            photoURL: PHOTO_URL_DEFAULT,
           })
             .then(() => {
-              dispatch(addUser({ uid: uid, fullName: fullName, email: email, photoURL: "https://png.pngtree.com/png-clipart/20200224/original/pngtree-cartoon-color-simple-male-avatar-png-image_5230557.jpg" }));
-              navigate("/browser");
+              dispatch(addUser({ uid: uid, fullName: fullName, email: email, photoURL: PHOTO_URL_DEFAULT }));
+              navigate("/home");
             })
             .catch((error) => {
               console.log("Profile update error:", error);
@@ -88,7 +89,7 @@ export const Login = () => {
           const user = userCredential.user;
           const { uid, displayName, email, photoURL } = user;
           dispatch(addUser({ uid: uid, fullName: displayName, email: email, photoURL: photoURL }));
-          navigate("/browser");
+          navigate("/home");
         })
         .catch((error) => {
           const errorCode = error.code;
@@ -111,14 +112,14 @@ export const Login = () => {
     <>
       <Link to="/">
         <img
-          src="https://help.nflxext.com/helpcenter/OneTrust/oneTrust_production_2025-08-26/consent/87b6a5c0-0104-4e96-a291-092c11350111/0198e689-25fa-7d64-bb49-0f7e75f898d2/logos/dd6b162f-1a32-456a-9cfe-897231c7763c/4345ea78-053c-46d2-b11e-09adaef973dc/Netflix_Logo_PMS.png"
+          src={LOGO_URL}
           alt="netflix-logo"
           className="w-44 absolute z-10 top-2 left-32 cursor-pointer"
         />
       </Link>
       <div>
         <img
-          src="https://assets.nflxext.com/ffe/siteui/vlv3/6fd9d446-cd78-453a-8c9c-417ed3e00422/web/IN-en-20251117-TRIFECTA-perspective_2fe4e381-977f-49fd-a7f4-1da0bcf09429_large.jpg"
+          src={BG_IMAGE_URL}
           alt="hero-image"
           className="w-full h-screen object-cover brightness-30"
         />

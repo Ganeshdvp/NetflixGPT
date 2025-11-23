@@ -1,6 +1,6 @@
 import { Header } from "./Header";
 
-export const Browser = () => {
+export const Home = () => {
 
   return (
     <>
