@@ -27,6 +27,9 @@ export const Login = () => {
 
   const [isSignIn, setIsSignIn] = useState(true);
   const [signInError, setSignInError] = useState("");
+  const [otherSignInWay, setOtherSignInWay] = useState(false);
+  const [otherSignInWayValue, setOtherSignInWayValue] = useState("");
+
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const location = useLocation();
@@ -156,9 +159,30 @@ export const Login = () => {
       });
   };
 
+
+  // when we click other providers it will called
+  const handleSignInOtherWay = (value)=>{
+    if(value === "facebook"){
+      setOtherSignInWayValue("facebook");
+    }
+    else if(value === "microsoft"){
+      setOtherSignInWayValue("microsoft");
+    }
+    else if(value === "twitter"){
+      setOtherSignInWayValue("twitter");
+    }
+    setOtherSignInWay(true);
+  }
+
+
   const handleLoginClick = () => {
     setIsSignIn(!isSignIn);
+    setOtherSignInWay(false);
+    setSignInError("");
   };
+
+
+
 
   return (
     <>
@@ -275,22 +299,30 @@ export const Login = () => {
             >
               <img src={GOOGLE_IMAGE_URL} alt="Google" />
             </button>
-            <img
+            <button className="w-6 h-6 hover:scale-110 cursor-pointer" onClick={() => handleSignInOtherWay("facebook")}>
+              <img
               src={FACEBOOK_IMAGE_URL}
               alt="Facebook"
-              className="w-6 h-6 hover:scale-110"
             />
-            <img
+            </button>
+            <button className="w-6 h-[20px] hover:scale-110 cursor-pointer" onClick={() => handleSignInOtherWay("microsoft")}>
+              <img
               src={MICROSOFT_IMAGE_URL}
               alt="Microsoft"
-              className="w-6 h-[20px] hover:scale-110"
             />
-            <img
+            </button>
+            <button className="w-6 h-6 hover:scale-110 cursor-pointer" onClick={() => handleSignInOtherWay("twitter")}>
+              <img
               src={TWITTER_IMAGE_URL}
               alt="Twitter"
-              className="w-6 h-6 hover:scale-110"
             />
+            </button>
           </div>
+
+          {
+            otherSignInWay && (<p className="text-[12px] text-amber-600 mb-4 -mt-6 text-center">{otherSignInWayValue} method are not implemented yet. "try to go with google"</p>
+            )
+          }
 
           {isSignIn && (<p
             className="text-sm underline mb-4 cursor-pointer hover:text-amber-800" onClick={()=> navigate('/forget-password')}

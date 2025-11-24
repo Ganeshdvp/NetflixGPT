@@ -11,3 +11,5 @@ export const FACEBOOK_IMAGE_URL = "https://upload.wikimedia.org/wikipedia/common
 export const MICROSOFT_IMAGE_URL = "https://upload.wikimedia.org/wikipedia/commons/4/44/Microsoft_logo.svg";
 
 export const TWITTER_IMAGE_URL = "https://upload.wikimedia.org/wikipedia/commons/thumb/5/57/X_logo_2023_%28white%29.png/960px-X_logo_2023_%28white%29.png";
+
+export const API_OPTIONS = {method: 'GET', headers: {accept: 'application/json', Authorization:'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIwZGUxNTIzYmExNzViMTAwYzBhYTdkZjEwZTAwN2IxZSIsIm5iZiI6MTc2Mzg5MDE5My40OTgsInN1YiI6IjY5MjJkNDExNTc5N2MzZjBmMWRkNDhmMSIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.ZPPk3fToTll8LIRH_fnEUy3Q0d4jKPJXqtW_ewYs6s0'}}

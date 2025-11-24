@@ -65,4 +65,15 @@
 - created forgot password page
 - implement the forgot password logic also
 
+# task-8
+
+- fixed errors proporly
+- fetching all movies from the TMDB Api's
+- created the first container component page
+- create moviesSlice file
+- created BgVideoplayer component
+- adjust the thinks properly...
+
+
+
 

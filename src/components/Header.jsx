@@ -26,7 +26,7 @@ export const Header = () => {
 
   return (
     <>
-      <div className="absolute z-10 flex items-center justify-between w-full mx-auto p-2 px-10 sm:px-32">
+      <div className="absolute z-10 flex items-center justify-between w-full mx-auto p-2 px-10 sm:px-32 bg-gradient-to-b from-black">
         <img
           src={LOGO_URL}
           alt="netflix-logo"
@@ -59,7 +59,7 @@ export const Header = () => {
                 alt="user-avatar"
                 className="w-10 h-10 rounded-4xl mr-2"
               />
-              <span className="text-black font-medium mr-4">
+              <span className="text-white font-medium mr-4">
                 Hello, {data?.fullName.length > 10 ? data?.fullName.slice(0,10)+"..." : data?.fullName}
               </span>
             </div>

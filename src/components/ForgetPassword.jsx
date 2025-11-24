@@ -55,7 +55,7 @@ export const ForgetPassword = () => {
           value={email}
           onChange={(e)=> setEmail(e.currentTarget.value)}
           placeholder="Enter your email"
-          className="mx-auto block mt-12 px-4 py-2 w-md rounded-md outline-none text-white bg-gray-800"
+          className="mx-auto block mt-12 px-4 py-2 w-md rounded-md outline-none text-white bg-gray-800 focus:border-red-600"
         />
         <button onClick={handleSendResetMail} className="bg-red-600 text-amber-50 px-6 py-2 rounded-md mt-6 block mx-auto hover:bg-red-700">
           Send Reset Link
