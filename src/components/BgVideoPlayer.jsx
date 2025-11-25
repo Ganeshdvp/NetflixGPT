@@ -28,9 +28,9 @@ export const BgVideoPlayer = ({ id }) => {
 
   return (
     <>
-      <div className="w-screen h-full">
+      <div className="max-w-screen h-full">
         <iframe
-          className="w-full h-full aspect-video pointer-events-none"
+          className="max-w-full h-full aspect-video pointer-events-none"
           src={`https://www.youtube.com/embed/${trailerKey?.key}?autoplay=1&mute=1&controls=0&modestbranding=1&playsinline=1&disablekb=1&fs=0&loop=1&playlist=${trailerKey?.key}`}
           allow="autoplay; encrypted-media"
         ></iframe>

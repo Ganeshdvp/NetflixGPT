@@ -83,6 +83,12 @@
 - adjusting the cards properly
 - created the custom hooks for "now playing","popular","top rated","tv series","trending tv series";
 
+# task-10
+
+- created the accordion component
+- created Reasontojoin component
+- created the trending component
+- adjust the cards in the home page
 
 
 
