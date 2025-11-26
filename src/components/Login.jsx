@@ -72,7 +72,7 @@ export const Login = () => {
 
 
   // submit the form
-  const submitFormData = (values, { resetForm }) => {
+  const submitFormData = (values) => {
     const { fullName, email, password } = values;
     if (!isSignIn) {
       // Sign Up Logic
@@ -130,7 +130,7 @@ export const Login = () => {
           );
         });
     }
-    resetForm();
+    // resetForm();
   };
 
   // Sign in with Google
@@ -197,7 +197,7 @@ export const Login = () => {
         <img
           src={BG_IMAGE_URL}
           alt="hero-image"
-          className="w-full h-screen object-cover brightness-30"
+          className="w-full h-screen object-cover brightness-20"
         />
       </div>
 
@@ -305,7 +305,7 @@ export const Login = () => {
               alt="Facebook"
             />
             </button>
-            <button className="w-6 h-[20px] hover:scale-110 cursor-pointer" onClick={() => handleSignInOtherWay("microsoft")}>
+            <button className="w-6 h-5 hover:scale-110 cursor-pointer" onClick={() => handleSignInOtherWay("microsoft")}>
               <img
               src={MICROSOFT_IMAGE_URL}
               alt="Microsoft"
@@ -338,6 +338,8 @@ export const Login = () => {
           </p>
         </Form>
       </Formik>
+
+      
     </>
   );
 };

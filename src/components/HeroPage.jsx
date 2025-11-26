@@ -42,7 +42,7 @@ export const HeroPage = () => {
           Unlimited movies, shows, and more
         </h1>
         <p className="text-white my-4 font-bold">
-          Starts at ₹149. Cancel at any time.
+          Starts at ₹1. Cancel at any time.
         </p>
         <p className="text-white font-bold">
           Ready to watch? Enter your email to create or restart your membership.

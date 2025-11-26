@@ -26,7 +26,7 @@ const useTopRated = ()=>{
 
     useEffect(()=>{
         topRatedMovies();
-    })
+    },[])
 }
 
 export default useTopRated;

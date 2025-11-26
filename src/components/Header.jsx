@@ -2,10 +2,8 @@ import { useDispatch, useSelector } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
 import { signOut } from "firebase/auth";
 import { auth } from "../utils/firebase";
-import { addUser, removeUser } from "../utils/userSlice";
+import { removeUser } from "../utils/userSlice";
 import { LOGO_URL } from "../utils/constants";
-import { useEffect } from "react";
-import { onAuthStateChanged } from "firebase/auth";
 import { ResetMovies } from '../utils/moviesSlice';
 import { ResetTvSeries } from '../utils/tvSeriesSlice';
 
@@ -62,7 +60,7 @@ export const Header = () => {
     <>
       <div className="absolute z-10 flex items-center justify-between w-full mx-auto p-2 px-10 sm:px-32 bg-gradient-to-b from-black">
         <img src={LOGO_URL} alt="netflix-logo" className="w-44" />
-        {data === null ? (
+        {data.uid === "" ? (
           <div className="flex items-center space-x-8">
             <div className="relative inline-block">
               <select className="appearance-none border rounded-sm pl-4 pr-8 py-2 text-sm border-white bg-black text-white focus:outline-none cursor-pointer hover:border-amber-600">

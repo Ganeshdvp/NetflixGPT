@@ -6,7 +6,6 @@ import { TrailerVideoPlaying } from "../utils/moviesSlice";
 
 export const BgVideoPlayer = ({ id }) => {
   const dispatch = useDispatch();
-  const trailerKey = useSelector((store) => store.nowPlaying?.trailerVideo);
 
   // fetching the trailer video through the movie id
   const videoLoading = async () => {
@@ -22,9 +21,11 @@ export const BgVideoPlayer = ({ id }) => {
     dispatch(TrailerVideoPlaying(trailer));
   };
 
+  const trailerKey = useSelector((store) => store.nowPlaying?.trailerVideo);
+
   useEffect(() => {
     videoLoading();
-  }, []);
+  },[]);
 
   return (
     <>

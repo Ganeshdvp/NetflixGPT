@@ -90,6 +90,11 @@
 - created the trending component
 - adjust the cards in the home page
 
+# task-11
+
+- fixing the bugs and ensure everything working fine!
+- hosted again in the firebase!
+
 
 
 

@@ -25,7 +25,7 @@ const useArrivingTv = ()=>{
 
     useEffect(()=>{
         arrivingTVSeries();
-    })
+    },[])
 }
 
 export default useArrivingTv;

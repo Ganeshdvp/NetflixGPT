@@ -9,10 +9,10 @@ export const FirstContainer = () => {
   const movies = useSelector(
     (store) => store.nowPlaying?.nowPlayingMoviesState
   );
+  
+  if (!movies || movies.length ===0 ) return;
 
-  if (movies === null) return;
-
-    const {id, original_title, overview, release_date } = movies[1];
+    const {id, original_title, overview, release_date } = movies[0];
 
 
   return (
