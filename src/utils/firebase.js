@@ -8,13 +8,13 @@ import { getAuth} from "firebase/auth";
 // Your web app's Firebase configuration
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
 const firebaseConfig = {
-  apiKey: "AIzaSyCQVpdHoIXAa_9lhRJHx_s8-JdzlluIC-0",
+  apiKey: import.meta.env.VITE_FIREBASE_API_KEY,
   authDomain: "hyperflix-d20ac.firebaseapp.com",
   projectId: "hyperflix-d20ac",
   storageBucket: "hyperflix-d20ac.firebasestorage.app",
-  messagingSenderId: "1096491798840",
-  appId: "1:1096491798840:web:7bdc5b54a43e96181bb1cd",
-  measurementId: "G-HLX43LSZ9G"
+  messagingSenderId: import.meta.env.VITE_SENDER_ID_FIREBASE,
+  appId: import.meta.env.VITE_APP_ID_FIREBASE,
+  measurementId: import.meta.env.VITE_MEASUREMENT_ID_FIREBASE
 };
 
 // Initialize Firebase
