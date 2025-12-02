@@ -7,12 +7,14 @@ const userSlice = createSlice({
     fullName: "",
     email: "",
     photoURL: "",
+    loading: true,
   },
   reducers: {
     addUser: (state, action) => {
       return {
         ...state,
         ...action.payload,
+        loading: false
       };
     },
     removeUser: () => {
@@ -21,6 +23,7 @@ const userSlice = createSlice({
         fullName: "",
         email: "",
         photoURL: "",
+        loading: false
       };
     },
   },

@@ -2,13 +2,15 @@ import { useEffect } from "react";
 import { ArrivingTodayCategory } from "../utils/tvSeriesSlice";
 import axios from "axios";
 import { API_OPTIONS } from "../utils/constants";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 
 
 
 const useArrivingTv = ()=>{
 
     const dispatch = useDispatch();
+
+    const arrivingTv = useSelector(store=> store.tvSeries?.arrivingTvSeriesState)
 
 
    // TV Series fetching
@@ -24,7 +26,9 @@ const useArrivingTv = ()=>{
     }
 
     useEffect(()=>{
-        arrivingTVSeries();
+        if(!arrivingTv || arrivingTv.length === 0){
+          arrivingTVSeries();
+        }
     },[])
 
     return arrivingTVSeries();

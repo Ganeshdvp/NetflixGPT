@@ -2,13 +2,14 @@ import { useEffect } from "react";
 import { TrendingTvCategory } from "../utils/tvSeriesSlice";
 import axios from "axios";
 import { API_OPTIONS } from "../utils/constants";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 
 
 
 const useTvTrending = ()=>{
 
     const dispatch = useDispatch();
+    const tvData = useSelector(store=> store.tvSeries?.trendingTvState);
 
 
        // tv trending
@@ -24,7 +25,9 @@ const useTvTrending = ()=>{
        }
 
     useEffect(()=>{
-        tvTrending();
+        if(!tvData || tvData.length === 0){
+          tvTrending();
+        }
     },[])
 
     return tvTrending();

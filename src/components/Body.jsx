@@ -4,6 +4,8 @@ import { Login } from './Login';
 import { RouterProvider } from 'react-router-dom';
 import { Home } from './Home';
 import { ForgetPassword } from './ForgetPassword';
+import { PublicRoute } from '../routes/PublicRoute';
+import { ProtectRoute } from '../routes/ProtectRoute';
 
 export const Body = () => {
 
@@ -11,20 +13,36 @@ export const Body = () => {
   const appRouter = createBrowserRouter([
     {
       path:'/',
-      element:<HeroPage/>
+      element:(
+        <PublicRoute>
+          <HeroPage/>
+        </PublicRoute>
+      )
     },
     {
       path:'/login',
-      element:<Login/>
+       element:(
+        <PublicRoute>
+          <Login/>
+        </PublicRoute>
+      )
     },
     {
       path:'/home',
-      element:<Home/>
+       element:(
+        <ProtectRoute>
+          <Home/>
+        </ProtectRoute>
+      )
     },
     {
       path:'/forget-password',
-      element:<ForgetPassword/>
-    }
+       element:(
+        <PublicRoute>
+          <ForgetPassword/>
+        </PublicRoute>
+      )
+    },
   ])
 
   return (

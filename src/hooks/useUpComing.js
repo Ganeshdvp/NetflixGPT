@@ -2,13 +2,15 @@ import { useEffect } from "react";
 import { UpComingCategory } from "../utils/moviesSlice";
 import axios from "axios";
 import { API_OPTIONS } from "../utils/constants";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 
 
 
 const useUpComing = ()=>{
 
     const dispatch = useDispatch();
+
+    const upComingData = useSelector(store=> store.nowPlaying?.upComingMoviesState);
 
 
       // Up coming all movies fetching
@@ -25,7 +27,9 @@ const useUpComing = ()=>{
     }
 
     useEffect(()=>{
-        upComingMovies();
+        if(!upComingData || upComingData.length === 0){
+          upComingMovies();
+        }
     },[])
 
     return upComingMovies();

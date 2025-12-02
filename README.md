@@ -56,7 +56,7 @@
 # task-6
 
 - add header page in browser component
-- restrict routing   ---- pending
+- restrict routing by using publicRoute and protectRoute
 
 # task-7
 
@@ -122,7 +122,9 @@
 # task-16
 
 - improved accessibility
-- 
+- improved SEO (created robots.txt file)
+- added Shimmer UI
+- memoization
 
 
 ---------Completed----------
