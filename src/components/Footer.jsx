@@ -41,6 +41,12 @@ export const Footer = () => {
     dispatch(changeLanguage(e.target.value))
   }
 
+  const handleEnterClick = (e)=>{
+    if(e.key === "Enter"){
+      handleSignInClick();
+    }
+  }
+
 
   return (
     <>
@@ -100,6 +106,7 @@ export const Footer = () => {
               type="email"
               value={mail}
               onChange={(e)=> setMail(e.target.value)}
+              onKeyDown={handleEnterClick}
               placeholder={lang[language].emailPlaceholder}
               className="px-4 py-3 rounded-md bg-gray-900 text-white border border-gray-600 focus:outline-none focus:ring-1 focus:ring-red-600 w-full sm:w-auto transition-all duration-300 hover:border-red-600"
             />

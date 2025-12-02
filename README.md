@@ -119,5 +119,10 @@
 - deployed in cloudfare
 - added languages change!
 
+# task-16
+
+- improved accessibility
+- 
+
 
 ---------Completed----------

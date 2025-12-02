@@ -47,6 +47,12 @@ export const ForgetPassword = () => {
       });
   };
 
+    const handleEnterClick = (e)=>{
+    if(e.key === 'Enter'){
+      handleSendResetMail();
+    }
+  }
+
   return (
     <>
       <Link to={"/"}>
@@ -71,6 +77,7 @@ export const ForgetPassword = () => {
           type="email"
           value={email}
           onChange={(e)=> setEmail(e.currentTarget.value)}
+          onKeyDown={handleEnterClick}
           placeholder={lang[language].forgotPasswordPageMail}
           className="mx-auto block mt-12 px-4 py-2 w-[70%] sm:md rounded-md outline-none text-white bg-gray-800 focus:border-red-600"
         />

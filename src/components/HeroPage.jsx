@@ -34,6 +34,12 @@ export const HeroPage = () => {
     naviagate("/login", { state: { userEmail: userEmail } });
   };
 
+  const handleEnterClick = (e)=>{
+    if(e.key === 'Enter'){
+      handleClick();
+    }
+  }
+
   return (
     <>
     <div className="w-screen h-screen">
@@ -63,6 +69,7 @@ export const HeroPage = () => {
               type="email"
               value={userEmail}
               onChange={handleChange}
+              onKeyDown={handleEnterClick}
               placeholder={lang[language].emailPlaceholder}
               className="border-2 border-gray-500 py-4 px-4 rounded-sm text-white outline-none hover:border-amber-600 focus:border-amber-600 w-72"
             />

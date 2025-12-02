@@ -41,6 +41,12 @@ export const SearchMovies = () => {
     }
   };
 
+     const handleEnterClick = (e)=>{
+    if(e.key === 'Enter'){
+      handleSearchClick();
+    }
+  }
+
   return (
     <>
       <div className="bg-black">
@@ -72,6 +78,7 @@ export const SearchMovies = () => {
               <input
                 type="text"
                 placeholder={lang[language].inputPlaceHolder}
+                onKeyDown={handleEnterClick}
                 className="p-2 px-4 pl-9 m-4 border border-amber-600 rounded-md w-[95%] sm:w-md ml-2 sm:ml-10 outline-none hover:border-amber-800 focus:border-amber-800"
                 ref={text}
               />
