@@ -1,8 +1,12 @@
 import React, { useState } from "react";
 import { IoIosArrowDown } from "react-icons/io";
+import { useSelector } from "react-redux";
+import lang from "../utils/langConstants";
 
 export const Accordian = () => {
   const [openIndex, setOpenIndex] = useState(null);
+
+  const language = useSelector(store => store.language?.languageState);
 
   const handleClick = (index) => {
     setOpenIndex(openIndex === index ? null : index);
@@ -10,35 +14,35 @@ export const Accordian = () => {
 
   const accordionData = [
     {
-            q: "What is HyperFlix?",
-            a: "HyperFlix is a streaming service that offers a wide variety of award-winning TV shows, movies, anime, documentaries and more – on thousands of internet-connected devices. You can watch as much as you want, whenever you want, without a single ad – all for one low monthly price. There's always something new to discover, and new TV shows and movies are added every week!",
+            q: lang[language].faqQuestion1,
+            a: lang[language].faqAnswer1,
           },
           {
-            q: "How much does HyperFlix cost?",
-            a: "Watch HyperFlix on your smartphone, tablet, Smart TV, laptop, or streaming device, all for one fixed monthly fee. Plans range from ₹1 to ₹10/month.",
+            q: lang[language].faqQuestion2,
+            a: lang[language].faqAnswer2,
           },
           {
-            q: "Where can I watch?",
-            a: "Watch anywhere, anytime. Sign in with your HyperFlix account to watch instantly on the web at hyperflix.com from your personal computer or on any internet-connected device that offers the HyperFlix app...",
+            q: lang[language].faqQuestion3,
+            a: lang[language].faqAnswer3,
           },
           {
-            q: "How do I cancel?",
-            a: "HyperFlix is flexible. You can easily cancel your account online in two clicks. There are no cancellation fees – start or stop your account anytime.",
+            q: lang[language].faqQuestion4,
+            a: lang[language].faqAnswer4,
           },
           {
-            q: "Where can I watch on HyperFlix?",
-            a: "HyperFlix has an extensive library of feature films, documentaries, shows, anime, award-winning HyperFlix originals, and more. Watch as much as you want, anytime you want.",
+            q: lang[language].faqQuestion5,
+            a: lang[language].faqAnswer5,
           },
           {
-            q: "Is HyperFlix good for kids?",
-            a: "The HyperFlix Kids experience is included in your membership to give parents control while kids enjoy family-friendly TV shows and films in their own space...",
+            q: lang[language].faqQuestion6,
+            a: lang[language].faqAnswer6,
           },
   ]
 
   return (
     <div className="bg-black text-white w-full py-10 px-4 sm:px-6 lg:px-40">
       <h2 className="font-bold text-2xl sm:text-xl md:text-2xl lg:text-2xl mb-6">
-        Frequently Asked Questions
+        {lang[language].faq}
       </h2>
 
       <div className="flex flex-col space-y-3 max-w-6xl mx-auto">

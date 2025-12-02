@@ -114,5 +114,10 @@
 - chnaged the enitre app names and firebase config also!
 - making responsive!
 
+# task-15
+
+- deployed in cloudfare
+- added languages change!
+
 
 ---------Completed----------

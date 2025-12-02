@@ -9,7 +9,7 @@ import {
   signInWithPopup,
 } from "firebase/auth";
 import { auth } from "../utils/firebase";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { addUser } from "../utils/userSlice";
 import {
   PHOTO_URL_DEFAULT,
@@ -25,6 +25,7 @@ import {
   FaSpinner,
 } from "react-icons/fa";
 import { Header } from './Header';
+import lang from "../utils/langConstants";
 
 
 export const Login = () => {
@@ -39,6 +40,7 @@ export const Login = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const location = useLocation();
+    const language = useSelector(store => store.language?.languageState);
 
   // initial data
   const initialSignUpData = {
@@ -226,7 +228,7 @@ export const Login = () => {
       >
         <Form className="flex flex-col items-center p-8 bg-[rgba(0,0,0,0.6)]  absolute z-20 text-amber-50 left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[70%] sm:w-[60%] md:w-[50%] lg:w-[40%] xl:w-3/12">
           <h1 className="py-2 font-bold text-2xl mb-6">
-            {isSignIn ? "Sign In" : "Sign Up"}
+            {isSignIn ? lang[language].signIn : lang[language].signUp}
           </h1>
 
           {!isSignIn && (
@@ -236,7 +238,7 @@ export const Login = () => {
                 type="text"
                 name="fullName"
                 // id="fullName"
-                placeholder="Full Name"
+                placeholder={lang[language].fullName}
               ></Field>
               <ErrorMessage name="fullName">
                 {(msg) => (
@@ -252,7 +254,7 @@ export const Login = () => {
               type="email"
               name="email"
               // id="email"
-              placeholder="Email Address"
+              placeholder={lang[language].emailPlaceholder}
             ></Field>
             <ErrorMessage name="email">
               {(msg) => (
@@ -267,7 +269,7 @@ export const Login = () => {
               type="password"
               name="password"
               // id="password"
-              placeholder="Password"
+              placeholder={lang[language].password}
             ></Field>
             <ErrorMessage name="password">
               {(msg) => (
@@ -283,7 +285,7 @@ export const Login = () => {
                 type="password"
                 name="confirmPassword"
                 // id="confirmPassword"
-                placeholder="Confirm Password"
+                placeholder={lang[language].confirmPassword}
               ></Field>
               <ErrorMessage name="confirmPassword">
                 {(msg) => (
@@ -298,7 +300,7 @@ export const Login = () => {
             type="submit"
           >
             {isLoading ? ( <FaSpinner className="text-white text-2xl animate-spin w-full"/>) : (
-              <p>{isSignIn ? "Sign In" : "Sign Up"}</p>
+              <p>{isSignIn ? lang[language].signIn : lang[language].signUp}</p>
             )}
           </button>
 
@@ -346,14 +348,14 @@ export const Login = () => {
           {isSignIn && (<p
             className="text-sm underline mb-4 cursor-pointer hover:text-amber-800 active:text-amber-800" onClick={()=> navigate('/forget-password')}
           >
-            Forgot your password?
+            {lang[language].forgotPassword}
           </p>)}
 
           <p
             className="text-sm"
           >
-           {isSignIn ? ("New to HyperFlix? ") : ("Already have an account? ")}
-           <span onClick={handleLoginClick} className="hover:text-amber-900 active:text-amber-900 cursor-pointer">{isSignIn ? "Sign Up now." : "Sign In."}</span>
+           {isSignIn ? (lang[language].newToHyperFlix) : (lang[language].alreadyHaveAccount)}
+           <span onClick={handleLoginClick} className="hover:text-amber-900 active:text-amber-900 cursor-pointer">{isSignIn ? lang[language].signUpNow : lang[language].signIn}</span>
           </p>
         </Form>
       </Formik>

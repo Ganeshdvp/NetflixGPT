@@ -1,9 +1,11 @@
 import { useSelector } from "react-redux";
 import { IMG_URL } from "../utils/constants";
+import lang from "../utils/langConstants";
 
 export const SecondContainer = () => {
   const {nowPlayingMoviesState, popularMoviesState, topRatedMoviesState, upComingMoviesState } = useSelector((store) => store.nowPlaying);
   const {arrivingTvSeriesState, trendingTvState} = useSelector((store)=> store.tvSeries)
+  const language = useSelector(store => store.language?.languageState);
 
   return (
     <>
@@ -14,7 +16,7 @@ export const SecondContainer = () => {
             className="text-white
          text-2xl font-bold px-8 mb-2"
           >
-            Now Playing
+            {lang[language].nowPlaying}
           </h2>
           <div className="flex space-x-6 px-8 h-75 p-4 w-full overflow-x-scroll no-scrollbar">
             {nowPlayingMoviesState?.map((item) => {
@@ -37,7 +39,7 @@ export const SecondContainer = () => {
             className="text-white
          text-2xl font-bold px-8 mb-2"
           >
-            Popular
+            {lang[language].popular}
           </h2>
           <div className="flex space-x-6 px-8 h-75 p-4 w-full overflow-x-scroll no-scrollbar">
             {popularMoviesState?.map((item) => {
@@ -60,7 +62,7 @@ export const SecondContainer = () => {
             className="text-white
          text-2xl font-bold px-8 mb-2"
           >
-            Top Rated
+            {lang[language].topRated}
           </h2>
           <div className="flex space-x-6 px-8 h-75 p-4 w-full overflow-x-scroll no-scrollbar">
             {topRatedMoviesState?.map((item) => {
@@ -83,7 +85,7 @@ export const SecondContainer = () => {
             className="text-white
          text-2xl font-bold px-8 mb-2"
           >
-            Up Coming
+            {lang[language].upComing}
           </h2>
           <div className="flex space-x-6 px-8 h-75 p-4 w-full overflow-x-scroll no-scrollbar">
             {upComingMoviesState?.map((item) => {
@@ -106,7 +108,7 @@ export const SecondContainer = () => {
             className="text-white
          text-2xl font-bold px-8 mb-2"
           >
-           TV series <span className="text-[10px] text-white relative -top-0.5 font-light font-sans border-2 border-amber-800 rounded-2xl p-1 px-2">Arriving today</span>
+           {lang[language].tvSeries} <span className="text-[10px] text-white relative -top-0.5 font-light font-sans border-2 border-amber-800 rounded-2xl p-1 px-2">{lang[language].arrivingToday}</span>
           </h2>
           <div className="flex space-x-6 px-8 h-75 p-4 w-full overflow-x-scroll no-scrollbar">
             {arrivingTvSeriesState?.map((item) => {
@@ -129,7 +131,7 @@ export const SecondContainer = () => {
             className="text-white
          text-2xl font-bold px-8 mb-2"
           >
-           Trending <span className="text-[10px] text-white relative -top-0.5 font-light font-sans border-2 border-amber-800 rounded-2xl p-1 px-2">TV</span>
+           {lang[language].trendingTv} <span className="text-[10px] text-white relative -top-0.5 font-light font-sans border-2 border-amber-800 rounded-2xl p-1 px-2">TV</span>
           </h2>
           <div className="flex space-x-6 px-8 h-75 p-4 w-full overflow-x-scroll no-scrollbar">
             {trendingTvState?.map((item) => {

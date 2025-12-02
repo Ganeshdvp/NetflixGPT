@@ -9,11 +9,13 @@ import {
   resetSearchMovies,
 } from "../utils/searchMovieSlice";
 import { Footer } from "./Footer";
+import lang from "../utils/langConstants";
 
 export const SearchMovies = () => {
   const dispatch = useDispatch();
   const text = useRef();
   const data = useSelector((store) => store.searchMovies.searchResultMovies);
+   const language = useSelector(store => store.language?.languageState);
 
   const [loading, setLoading] = useState(false);
   const [searchClicked, setSearchClicked] = useState(false);
@@ -61,10 +63,7 @@ export const SearchMovies = () => {
             Welcome! dude
           </h1>
           <p className="text-sm text-gray-300 w-[50%] sm:w-[35%] text-center mb-10">
-            "Looking for a movie to watch? Type the name of any movie in the
-            search box, and our AI-powered search will instantly show you
-            matching titles. Only movies with available posters are displayed,
-            so you can easily browse and pick your favorite film."
+            {lang[language].searchDescription}
           </p>
 
           <div className="flex flex-col items-center sm:flex-row">
@@ -72,7 +71,7 @@ export const SearchMovies = () => {
               <IoSearch className="text-amber-600 relative left-9 sm:left-16" />
               <input
                 type="text"
-                placeholder="What would you like to watch today?"
+                placeholder={lang[language].inputPlaceHolder}
                 className="p-2 px-4 pl-9 m-4 border border-amber-600 rounded-md w-[95%] sm:w-md ml-2 sm:ml-10 outline-none hover:border-amber-800 focus:border-amber-800"
                 ref={text}
               />
@@ -81,7 +80,7 @@ export const SearchMovies = () => {
               className="p-2 bg-amber-700 rounded-xl px-8 cursor-pointer hover:bg-amber-800 active:bg-amber-800"
               onClick={handleSearchClick}
             >
-              Search
+              {lang[language].searchButton}
             </button>
           </div>
         </div>
@@ -101,7 +100,7 @@ export const SearchMovies = () => {
               className="text-white
          text-xl font-bold px-6 mb-2 sm:px-10 md:px-26"
             >
-              Search results (
+              {lang[language].results} (
               <span>{data.filter((e) => e.poster_path).length}</span>) -{" "}
               <span className="text-2xl text-amber-700">
                 {data[0]?.original_title || data[0]?.title}

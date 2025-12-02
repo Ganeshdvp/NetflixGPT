@@ -7,11 +7,15 @@ import { ReasonToJoin } from "./ReasonToJoin";
 import { Trending } from "./Trending";
 import {Footer} from './Footer';
 import { MdArrowForward } from "react-icons/md";
+import { useSelector } from "react-redux";
+import lang from '../utils/langConstants';
 
 
 export const HeroPage = () => {
   const [userEmail, setUserEmail] = useState("");
   const [emailError, setEmailError] = useState("");
+
+  const language = useSelector(store => store.language?.languageState);
 
   const naviagate = useNavigate();
 
@@ -45,13 +49,13 @@ export const HeroPage = () => {
 
       <div className="absolute top-4/12 left-1/2 transform -translate-x-1/2 w-[80%] text-center px-4 sm:w-9/12 md:w-6/12 lg:6/12">
         <h1 className="text-6xl text-white font-bold">
-          Unlimited movies, shows, and more
+          {lang[language].heroPageHeading}
         </h1>
         <p className="text-white my-4 font-bold">
-          Starts at ₹1. Cancel at any time.
+          {lang[language].heroPageHeading2}
         </p>
         <p className="text-white font-bold">
-          Ready to watch? Enter your email to create or restart your membership.
+          {lang[language].heroPageHeading3}
         </p>
         <div className="flex flex-col justify-center items-center space-y-2 mt-8 space-x-4 my-4 h-22 sm:flex sm:flex-row sm:items-start">
           <div className="flex flex-col">
@@ -59,7 +63,7 @@ export const HeroPage = () => {
               type="email"
               value={userEmail}
               onChange={handleChange}
-              placeholder="Email address"
+              placeholder={lang[language].emailPlaceholder}
               className="border-2 border-gray-500 py-4 px-4 rounded-sm text-white outline-none hover:border-amber-600 focus:border-amber-600 w-72"
             />
             {emailError && (
@@ -72,7 +76,7 @@ export const HeroPage = () => {
             className="flex items-center cursor-pointer bg-amber-700 text-white p-4 rounded-sm shadow-2xl hover:bg-orange-600 active:bg-orange-600"
             onClick={handleClick}
           >
-            Get Started <MdArrowForward className="text-lg ml-1"/>
+            {lang[language].heroPageButton} <MdArrowForward className="text-lg ml-1"/>
           </button>
         </div>
       </div>

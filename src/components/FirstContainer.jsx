@@ -2,6 +2,7 @@ import { useSelector } from "react-redux";
 import { BgVideoPlayer } from "./BgVideoPlayer";
 import { FaPlay } from "react-icons/fa";
 import { HiOutlineInformationCircle } from "react-icons/hi";
+import lang from "../utils/langConstants";
 
 
 export const FirstContainer = () => {
@@ -9,6 +10,8 @@ export const FirstContainer = () => {
   const movies = useSelector(
     (store) => store.nowPlaying?.nowPlayingMoviesState
   );
+
+     const language = useSelector(store => store.language?.languageState);
   
   if (!movies || movies.length ===0 ) return;
 
@@ -23,11 +26,11 @@ export const FirstContainer = () => {
         <p className="text-md mb-8 text-gray-200">Released on :- {release_date}</p>
         <div className="flex space-x-4">
           <button className=" bg-white text-black p-3 rounded-sm px-6 font-semibold text-sm hover:scale-105 hover:text-white hover:bg-black active:bg-black active:text-white flex items-center cursor-pointer">
-            <FaPlay />Play
+            <FaPlay /> {lang[language].playButton}
           </button>
           <button className="bg-[rgba(168,168,168,0.19)]  text-white p-3 rounded-sm px-6 font-semibold text-sm hover:bg-[rgba(168,168,168,0.6)] active:bg-[rgba(168,168,168,0.6)] flex items-center cursor-pointer">
             <HiOutlineInformationCircle className="text-xl mr-1"/>
-            Check info
+            {lang[language].checkInfoButton}
           </button>
         </div>
       </div>

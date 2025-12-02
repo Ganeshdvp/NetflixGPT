@@ -3,6 +3,7 @@ import userSlice from "./userSlice";
 import moviesSlice from './moviesSlice';
 import tvSeriesSlice from './tvSeriesSlice';
 import searchMovieSlice from './searchMovieSlice';
+import langConfigSlice from './langConfigSlice';
 
 
 const appStore = configureStore({
@@ -11,6 +12,7 @@ const appStore = configureStore({
         nowPlaying : moviesSlice,
         tvSeries: tvSeriesSlice,
         searchMovies: searchMovieSlice,
+        language : langConfigSlice,
     }
 })
 

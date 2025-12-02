@@ -7,13 +7,20 @@ import {
   FaGlobe,
   FaArrowUp,
 } from "react-icons/fa";
+import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
+import lang from "../utils/langConstants";
+import { changeLanguage } from '../utils/langConfigSlice';
+
 
 export const Footer = () => {
 
   const navigate = useNavigate();
   const [mail, setMail] = useState("");
   const [error,setError] = useState("");
+
+  const language = useSelector(store => store.language?.languageState);
+  const dispatch = useDispatch();
 
    const emailFormat = /^(?!.*\.\.)(?!\.)(?!.*\.$)[a-zA-Z0-9]+(?:\.[a-zA-Z0-9]+)*@gmail\.com$/
 
@@ -30,6 +37,10 @@ export const Footer = () => {
     navigate('/login', { state :{mail : mail}});
   }
 
+   const handleLangClick = (e)=>{
+    dispatch(changeLanguage(e.target.value))
+  }
+
 
   return (
     <>
@@ -37,7 +48,7 @@ export const Footer = () => {
         <div className="max-w-7xl mx-auto space-y-2 text-center">
           {/* Contact */}
           <p className="text-gray-500 text-lg mb-12">
-            Questions? Mail {" "}
+            {lang[language].questionsMail} {" "}
             <span className="text-white hover:underline cursor-pointer transition-colors duration-200">
               ganeshcherupalli6565@gmail.com
             </span>
@@ -46,18 +57,19 @@ export const Footer = () => {
           {/* Links Grid with Gradient Hover */}
           <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4 text-sm mb-12">
             {[
-              "FAQ",
-              "Help Center",
-              "Account",
-              "Media Center",
-              "Investor Relations",
-              "Jobs",
-              "Ways to Watch",
-              "Terms of Use",
-              "Privacy",
-              "Cookie Preferences",
-              "Corporate Information",
-              "Contact Us",
+              lang[language].questionsMail,
+               lang[language].FooterFaq,
+                lang[language].helpCenter,
+                 lang[language].account,
+                  lang[language].mediaCenter,
+                   lang[language].investorRelations,
+                    lang[language].jobs,
+                     lang[language].waysToWatch,
+                      lang[language].termsOfUse,
+                       lang[language].Privacy,
+                       lang[language].CookiePreferences,
+                        lang[language].CorporateInfo,
+                         lang[language].ContactUs,
             ].map((link, idx) => (
               <a
                 key={idx}
@@ -70,6 +82,17 @@ export const Footer = () => {
             ))}
           </div>
 
+           <div className="relative inline-block mb-10">
+              <select onChange={handleLangClick} value={language} className="appearance-none border border-gray-800 rounded-sm pl-4 pr-8 py-2 text-sm bg-black text-white focus:outline-none outline-none cursor-pointer hover:border-amber-600 active:border-amber-600">
+                <option className="cursor-pointer"value={"en"}>English</option>
+                <option className="cursor-pointer" value={"telugu"}>Telugu</option>
+                <option className="cursor-pointer" value={"hindi"}>Hindi</option>
+              </select>
+              <span className="pointer-events-none absolute inset-y-0 right-0 flex items-center pr-3 text-white">
+                &#9662;
+              </span>
+            </div>
+
           {/* Newsletter Signup */}
           <div className="flex flex-col sm:flex-row justify-center items-center sm:items-start gap-4 mb-12 h-28" >
             <div className="flex flex-col items-start">
@@ -77,13 +100,13 @@ export const Footer = () => {
               type="email"
               value={mail}
               onChange={(e)=> setMail(e.target.value)}
-              placeholder="Email address"
+              placeholder={lang[language].emailPlaceholder}
               className="px-4 py-3 rounded-md bg-gray-900 text-white border border-gray-600 focus:outline-none focus:ring-1 focus:ring-red-600 w-full sm:w-auto transition-all duration-300 hover:border-red-600"
             />
             {error && <p className="text-amber-700 text-sm">{error}</p>}
             </div>
             <button className="bg-red-600 px-6 py-3 rounded-md text-white hover:bg-red-700 active:bg-red-700 transition-colors shadow-lg" onClick={handleSignInClick}>
-              Sign In
+              {lang[language].signIn}
             </button>
           </div>
 
@@ -108,7 +131,7 @@ export const Footer = () => {
 
           {/* Footer Copy */}
           <p className="text-gray-500 text-sm mt-4">
-            &copy; 2025 HyperFlix. All rights reserved.
+            &copy; {lang[language].copyRight}
           </p>
 
           {/* Back to Top Button */}

@@ -11,10 +11,12 @@ import { IoMdLogOut } from "react-icons/io";
 import { IoSearch } from "react-icons/io5";
 import { BiDotsVerticalRounded } from "react-icons/bi";
 import { useEffect, useRef, useState } from "react";
-import { IoFilter } from "react-icons/io5";
+import { changeLanguage } from '../utils/langConfigSlice';
+import lang from "../utils/langConstants";
 
 export const Header = () => {
   const data = useSelector((store) => store.user);
+      const language = useSelector(store => store.language?.languageState);
 
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -41,6 +43,10 @@ export const Header = () => {
     setShow(!show);
   }
  
+
+  const handleLangClick = (e)=>{
+    dispatch(changeLanguage(e.target.value))
+  }
 
   // when clicking outside
     useEffect(() => {
@@ -89,10 +95,10 @@ export const Header = () => {
         {data.uid === "" ? (
           <div className="flex items-center space-x-8 hidden sm:block">
             <div className="relative inline-block">
-              <select className="appearance-none border rounded-sm pl-4 pr-8 py-2 text-sm border-white bg-black text-white focus:outline-none cursor-pointer hover:border-amber-600">
-                <option className="cursor-pointer">English</option>
-                <option className="cursor-pointer">Telugu</option>
-                <option className="cursor-pointer">Hindi</option>
+              <select onChange={handleLangClick} value={language} className="appearance-none border rounded-sm pl-4 pr-8 py-2 text-sm border-white bg-black text-white focus:outline-none cursor-pointer hover:border-amber-600">
+                <option className="cursor-pointer"value={"en"}>English</option>
+                <option className="cursor-pointer" value={"telugu"}>Telugu</option>
+                <option className="cursor-pointer" value={"hindi"}>Hindi</option>
               </select>
               <span className="pointer-events-none absolute inset-y-0 right-0 flex items-center pr-3 text-white">
                 &#9662;
@@ -101,7 +107,7 @@ export const Header = () => {
 
             <Link to="/login">
               <button className="bg-amber-700 text-white px-6 py-2 rounded-sm text-sm font-medium cursor-pointer hover:bg-orange-600 ">
-                Sign In
+                {lang[language].signIn}
               </button>
             </Link>
           </div>
@@ -120,7 +126,7 @@ export const Header = () => {
                 className="w-10 h-10 rounded-4xl mr-2"
               />
               <span className="text-white font-medium mr-4">
-                Hello,{" "}
+                {lang[language].hello},{" "}
                 {data?.fullName.length > 10
                   ? data?.fullName.slice(0, 10) + "..."
                   : data?.fullName}
@@ -130,7 +136,7 @@ export const Header = () => {
               className="flex items-center text-white p-2 rounded-sm cursor-pointer border border-amber-50 hover:bg-amber-700 active:bg-amber-700 font-semibold text-sm"
               onClick={handleClick}
             >
-              <IoMdLogOut className="text-xl mr-1" /> Sign Out
+              <IoMdLogOut className="text-xl mr-1" /> {lang[language].signOut}
             </button>
               </div>
               </>
@@ -146,7 +152,7 @@ export const Header = () => {
   active:shadow-[0_0_20px_5px_#f59e0b]"
               >
                 <IoSearch className="text-lg opacity-70 mr-1" />
-                Search movies
+                {lang[language].searchMovies}
               </button>
               <img
                 src={data?.photoURL}
@@ -154,7 +160,7 @@ export const Header = () => {
                 className="w-10 h-10 rounded-4xl mr-2"
               />
               <span className="text-white font-medium mr-4">
-                Hello,{" "}
+                {lang[language].hello},{" "}
                 {data?.fullName.length > 10
                   ? data?.fullName.slice(0, 10) + "..."
                   : data?.fullName}
@@ -164,7 +170,7 @@ export const Header = () => {
               className="flex items-center bg-orange-800 text-white p-2 rounded-sm cursor-pointer hover:bg-orange-700 font-semibold text-sm"
               onClick={handleClick}
             >
-              <IoMdLogOut className="text-xl mr-1" /> Sign Out
+              <IoMdLogOut className="text-xl mr-1" /> {lang[language].signOut}
             </button>
           </div>
           </>

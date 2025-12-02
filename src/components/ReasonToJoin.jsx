@@ -2,12 +2,17 @@ import Tv from '../assets/tv4.png';
 import Camera from '../assets/camera.png';
 import ListKids from '../assets/list.png';
 import Download from '../assets/download.png';
+import { useSelector } from 'react-redux';
+import lang from '../utils/langConstants';
 
 export const ReasonToJoin = () => {
+
+     const language = useSelector(store => store.language?.languageState);
+
   return (
     <>
     <div className='bg-black'>
-        <h2 className="font-bold text-2xl p-4 sm:text-xl sm:px-6 md:text-2xl md:px-40 lg:px-40 -mb-3 text-white">More reasons to join</h2>
+        <h2 className="font-bold text-2xl p-4 sm:text-xl sm:px-6 md:text-2xl md:px-40 lg:px-40 -mb-3 text-white">{lang[language].reasonToJoin}</h2>
 
         <div className='flex flex-col gap-y-4 space-x-5 p-6 pb-10 w-[80%] mx-auto sm:flex-row sm:flex-wrap md:flex-row md:justify-center'>
             <div className='w-full sm:w-[90%] md:w-72 lg:w-68 h-65 bg-[rgba(73,37,37,0.81)] rounded-2xl p-4 py-6'>
