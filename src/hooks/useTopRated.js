@@ -32,7 +32,7 @@ const useTopRated = ()=>{
         }
     },[]);
 
-    return topRatedMovies();
+    return topRatedMovies;
 }
 
 export default useTopRated;

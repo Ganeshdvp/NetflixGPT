@@ -32,7 +32,7 @@ const useUpComing = ()=>{
         }
     },[])
 
-    return upComingMovies();
+    return upComingMovies;
 }
 
 export default useUpComing;

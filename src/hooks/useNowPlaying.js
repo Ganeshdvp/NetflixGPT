@@ -29,7 +29,7 @@ const useNowPlaying = () => {
   },[]);
 
  
-  return NowPlayingData();
+  return NowPlayingData;
 }
 
 export default useNowPlaying;

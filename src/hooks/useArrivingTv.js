@@ -31,7 +31,7 @@ const useArrivingTv = ()=>{
         }
     },[])
 
-    return arrivingTVSeries();
+    return arrivingTVSeries;
 }
 
 export default useArrivingTv;

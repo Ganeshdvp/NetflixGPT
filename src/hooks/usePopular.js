@@ -30,7 +30,7 @@ const usePopular = ()=>{
         }
     },[])
 
-    return popularMovies();
+    return popularMovies;
 }
 
 export default usePopular;

@@ -39,7 +39,7 @@ export const Home = () => {
       window.removeEventListener("online", onLine);
       window.removeEventListener("offline", offLine);
     };
-  }, []);
+  },[]);
 
   return (
     <>

@@ -30,7 +30,7 @@ const useTvTrending = ()=>{
         }
     },[])
 
-    return tvTrending();
+    return tvTrending;
 }
 
 export default useTvTrending;
