@@ -26,6 +26,10 @@ import {
 } from "react-icons/fa";
 import { Header } from './Header';
 import lang from "../utils/langConstants";
+import { FaGoogle } from "react-icons/fa";
+import { FaFacebookF } from "react-icons/fa6";
+import { FaMicrosoft } from "react-icons/fa";
+import { FaTwitter } from "react-icons/fa6";
 
 
 export const Login = () => {
@@ -313,29 +317,19 @@ export const Login = () => {
 
           <div className="flex justify-center items-center w-full my-4 space-x-8 mb-6">
             <button
-              type="button"
-              className="w-12 h-12 hover:scale-110 cursor-pointer active:scale-110"
+              className="w-6 h-6 text-lg hover:scale-110 cursor-pointer active:scale-110"
               onClick={signInWithGoogle}
             >
-              <img src={GOOGLE_IMAGE_URL} alt="Google" />
+              <FaGoogle/>
             </button>
-            <button className="w-6 h-6 hover:scale-110 active:scale-110 cursor-pointer" onClick={() => handleSignInOtherWay("facebook")}>
-              <img
-              src={FACEBOOK_IMAGE_URL}
-              alt="Facebook"
-            />
+            <button className="w-6 h-6 text-lg hover:scale-110 active:scale-110 cursor-pointer" onClick={() => handleSignInOtherWay("facebook")}>
+              <FaFacebookF/>
             </button>
-            <button className="w-6 h-5 hover:scale-110 active:scale-110 cursor-pointer" onClick={() => handleSignInOtherWay("microsoft")}>
-              <img
-              src={MICROSOFT_IMAGE_URL}
-              alt="Microsoft"
-            />
+            <button className="w-6 h-6 text-lg hover:scale-110 active:scale-110 cursor-pointer" onClick={() => handleSignInOtherWay("microsoft")}>
+              <FaMicrosoft/>
             </button>
-            <button className="w-6 h-6 hover:scale-110 active:scale-110 cursor-pointer" onClick={() => handleSignInOtherWay("twitter")}>
-              <img
-              src={TWITTER_IMAGE_URL}
-              alt="Twitter"
-            />
+            <button className="w-6 h-6 text-lg hover:scale-110 active:scale-110 cursor-pointer" onClick={() => handleSignInOtherWay("twitter")}>
+              <FaTwitter/>
             </button>
           </div>
 
