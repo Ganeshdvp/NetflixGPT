@@ -126,5 +126,11 @@
 - added Shimmer UI
 - memoization
 
+# task-17
+
+- created videoPageContainer component
+- in these, created components like, videoPlayer,remaining videos, recommanded videos
+- make responsive also!
+
 
 ---------Completed----------
